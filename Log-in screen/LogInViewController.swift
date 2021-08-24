@@ -10,7 +10,7 @@ import UIKit
 class LogInViewController: UIViewController, UITextFieldDelegate {
     // MARK: - IB Outlets
 
-    @IBOutlet var loginButton: UIView!
+    @IBOutlet var logInButton: UIView!
     
     @IBOutlet var userNameTextfield: UITextField!
     @IBOutlet var userPasswordTextfield: UITextField!
@@ -30,7 +30,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         userPasswordTextfield.delegate = self
         userPasswordTextfield.tag = 1
         
-        loginButton.layer.cornerRadius = 5
+        logInButton.layer.cornerRadius = 10
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {

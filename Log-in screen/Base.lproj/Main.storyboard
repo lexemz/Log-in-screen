@@ -82,7 +82,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="3mF-cy-Tsd"/>
                     <connections>
-                        <outlet property="loginButton" destination="sCO-8B-wHm" id="EMo-31-s7H"/>
+                        <outlet property="logInButton" destination="sCO-8B-wHm" id="EMo-31-s7H"/>
                         <outlet property="userNameTextfield" destination="w6a-f6-ZBE" id="NKn-YR-qQk"/>
                         <outlet property="userPasswordTextfield" destination="avW-GG-p1b" id="sYO-Th-6yh"/>
                     </connections>
@@ -100,9 +100,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kF3-v4-ldh">
-                                <rect key="frame" x="172" y="806" width="70" height="36"/>
+                                <rect key="frame" x="157" y="786" width="100" height="36"/>
+                                <color key="backgroundColor" name="AccentColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Log Out"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                </state>
                                 <connections>
                                     <segue destination="z57-HH-Ank" kind="unwind" unwindAction="unwindFor:" id="QsY-zt-sqD"/>
                                 </connections>
@@ -125,8 +128,9 @@
                         <color key="tintColor" systemColor="systemBlueColor"/>
                         <constraints>
                             <constraint firstItem="yRG-Qf-42h" firstAttribute="centerX" secondItem="tpu-D6-P0X" secondAttribute="centerX" id="9rf-qR-tOl"/>
-                            <constraint firstItem="tpu-D6-P0X" firstAttribute="bottom" secondItem="kF3-v4-ldh" secondAttribute="bottom" constant="20" id="A1L-3q-V7e"/>
+                            <constraint firstItem="tpu-D6-P0X" firstAttribute="bottom" secondItem="kF3-v4-ldh" secondAttribute="bottom" constant="40" id="A1L-3q-V7e"/>
                             <constraint firstItem="Fur-xK-7r6" firstAttribute="centerX" secondItem="bG9-BV-bsO" secondAttribute="centerX" id="G6A-cS-GaE"/>
+                            <constraint firstItem="kF3-v4-ldh" firstAttribute="width" secondItem="bG9-BV-bsO" secondAttribute="width" multiplier="0.241546" id="K9r-GA-knU"/>
                             <constraint firstItem="kF3-v4-ldh" firstAttribute="centerX" secondItem="bG9-BV-bsO" secondAttribute="centerX" id="gn4-qQ-YZk"/>
                             <constraint firstItem="Fur-xK-7r6" firstAttribute="top" secondItem="tpu-D6-P0X" secondAttribute="top" constant="100" id="htw-1o-WjM"/>
                             <constraint firstItem="yRG-Qf-42h" firstAttribute="top" secondItem="Fur-xK-7r6" secondAttribute="bottom" constant="51.5" id="k97-r2-7dj"/>
@@ -134,6 +138,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="cQD-6Z-hUa"/>
                     <connections>
+                        <outlet property="logOutButton" destination="kF3-v4-ldh" id="roz-Ab-EPr"/>
                         <outlet property="userWelcomeLabel" destination="Fur-xK-7r6" id="Mh1-3K-Wgm"/>
                     </connections>
                 </viewController>
