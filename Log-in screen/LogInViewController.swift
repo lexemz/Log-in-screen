@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LogInViewController.swift
 //  Log-in screen
 //
 //  Created by Igor on 24.08.2021.

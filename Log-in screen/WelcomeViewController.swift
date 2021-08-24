@@ -1,5 +1,5 @@
 //
-//  UserViewController.swift
+//  WelcomeViewController.swift
 //  Log-in screen
 //
 //  Created by Igor on 24.08.2021.
