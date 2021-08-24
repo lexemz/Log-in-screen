@@ -79,14 +79,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
             nextField.becomeFirstResponder()
         } else {
-            // Not found, so remove keyboard.
-//            textField.resignFirstResponder()
-
+            // Not found next responder, run segue
             if shouldPerformSegue(withIdentifier: "loginButtonSegue", sender: nil) {
                 performSegue(withIdentifier: "loginButtonSegue", sender: nil)
             }
         }
-        // Do not add a line break
         return false
     }
     
