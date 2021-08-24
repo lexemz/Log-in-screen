@@ -15,13 +15,9 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(userName.dropFirst())
         userWelcomeLabel.text = "Welcome, " + userName.firstUppercased
     }
-    
-    @IBAction func logOutBtnP() {
-        dismiss(animated: true, completion: nil)
-    }
+
 }
 
 // MARK: - Extensions

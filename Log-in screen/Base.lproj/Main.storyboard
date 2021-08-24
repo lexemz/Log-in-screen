@@ -103,7 +103,7 @@
                                 <rect key="frame" x="179.5" y="812" width="55" height="30"/>
                                 <state key="normal" title="Log Out"/>
                                 <connections>
-                                    <action selector="logOutBtnP" destination="D9J-re-0KA" eventType="touchUpInside" id="NyD-EE-YO1"/>
+                                    <segue destination="z57-HH-Ank" kind="unwind" unwindAction="unwindFor:" id="QsY-zt-sqD"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome, " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fur-xK-7r6">
@@ -137,6 +137,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9mk-gs-QXz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="z57-HH-Ank" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1802.8985507246377" y="116.51785714285714"/>
         </scene>

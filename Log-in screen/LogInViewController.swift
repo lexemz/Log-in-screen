@@ -54,5 +54,10 @@ class LogInViewController: UIViewController {
     @IBAction func forgotPasswordButtonPressed() {
     }
     
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+//        guard let weclomeVC = segue.source as? WelcomeViewController else { return }
+        usernameTextfield.text = nil
+        passwordTextfield.text = nil
+    }
 }
 
