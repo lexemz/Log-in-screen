@@ -132,6 +132,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cQD-6Z-hUa"/>
+                    <connections>
+                        <outlet property="userWelcomeLabel" destination="Fur-xK-7r6" id="Mh1-3K-Wgm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9mk-gs-QXz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
