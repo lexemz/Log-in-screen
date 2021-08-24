@@ -56,7 +56,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         welcomeVC.userName = expectedUserName
     }
     
-    // hide keyboard with touch
+    // hide keyboard with touch on free space
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
@@ -104,7 +104,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         case .wrongNameOrPassword:
             alertTitle = "Error"
             alertSubtitle = "Wrong login or password!"
-            alertAction = { self.userPasswordTextfield.text = "" }
+            alertAction = { self.userPasswordTextfield.text = nil }
         case .userNameTip:
             alertTitle = "Ваше имя пользователя"
             alertSubtitle = expectedUserName
