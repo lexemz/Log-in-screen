@@ -83,8 +83,8 @@
                     <navigationItem key="navigationItem" id="3mF-cy-Tsd"/>
                     <connections>
                         <outlet property="loginButton" destination="sCO-8B-wHm" id="EMo-31-s7H"/>
-                        <outlet property="passwordTextfield" destination="avW-GG-p1b" id="sYO-Th-6yh"/>
-                        <outlet property="usernameTextfield" destination="w6a-f6-ZBE" id="NKn-YR-qQk"/>
+                        <outlet property="userNameTextfield" destination="w6a-f6-ZBE" id="NKn-YR-qQk"/>
+                        <outlet property="userPasswordTextfield" destination="avW-GG-p1b" id="sYO-Th-6yh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -12,8 +12,8 @@ class LogInViewController: UIViewController {
 
     @IBOutlet var loginButton: UIView!
     
-    @IBOutlet var usernameTextfield: UITextField!
-    @IBOutlet var passwordTextfield: UITextField!
+    @IBOutlet var userNameTextfield: UITextField!
+    @IBOutlet var userPasswordTextfield: UITextField!
     
     // MARK: - Public Properties
 
@@ -24,20 +24,21 @@ class LogInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         loginButton.layer.cornerRadius = 5
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        guard let userName = usernameTextfield.text, !userName.isEmpty else {
-            print("username shit!")
+        guard let userName = userNameTextfield.text, !userName.isEmpty else {
+            showWrongUserDataError(errorType: .emptyUserNameField)
             return false
         }
-        guard let userPass = passwordTextfield.text, !userPass.isEmpty else {
-            print("pass shit!")
+        guard let userPass = userPasswordTextfield.text, !userPass.isEmpty else {
+            showWrongUserDataError(errorType: .emptyUserPasswordField)
             return false
         }
         if userPass != userPassword || userName != userName {
-            print("wrong password or username")
+            showWrongUserDataError(errorType: .wrongNameOrPassword)
             return false
         }
         return true
@@ -55,26 +56,26 @@ class LogInViewController: UIViewController {
 
     // MARK: - IB Actions
 
-    @IBAction func forgotUserNameButtonPressed() { showTip(tipType: .login)}
+    @IBAction func forgotUserNameButtonPressed() { showTip(tipType: .userName)}
     
-    @IBAction func forgotPasswordButtonPressed() { showTip(tipType: .password) }
+    @IBAction func forgotPasswordButtonPressed() { showTip(tipType: .userPassword) }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
 //        guard let weclomeVC = segue.source as? WelcomeViewController else { return }
-        usernameTextfield.text = nil
-        passwordTextfield.text = nil
+        userNameTextfield.text = nil
+        userPasswordTextfield.text = nil
     }
     
     // MARK: - Private Methods
     private func showTip(tipType: TipType) {
-        var tip: String
-        var tipTitle: String
+        let tip: String
+        let tipTitle: String
         
         switch tipType {
-        case .login:
+        case .userName:
             tip = userName
             tipTitle = "Ваше имя пользователя"
-        case .password:
+        case .userPassword:
             tip = userPassword
             tipTitle = "Ваш пароль"
         }
@@ -84,10 +85,35 @@ class LogInViewController: UIViewController {
             message: tip,
             preferredStyle: UIAlertController.Style.alert
         )
-        let okAction = UIAlertAction(title: "Понял", style: .default)
+        let okAction = UIAlertAction(title: "Ok", style: .default)
         
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showWrongUserDataError(errorType: UserDataErrorType) {
+        let errorTip: String
+        
+        switch errorType {
+        case .emptyUserNameField:
+            errorTip = "Enter username"
+        case .emptyUserPasswordField:
+            errorTip = "Enter password"
+        case .wrongNameOrPassword:
+            errorTip = "Wrong login or password!"
+        }
+        
+        let alert = UIAlertController(
+            title: "Error",
+            message: errorTip,
+            preferredStyle: UIAlertController.Style.alert
+        )
+        let okAction = UIAlertAction(title: "Ok", style: .default)
+        
+        alert.addAction(okAction)
+        self.present(alert, animated: true) {
+            self.userPasswordTextfield.text = ""
+        }
     }
 }
 
@@ -95,7 +121,13 @@ class LogInViewController: UIViewController {
 
 extension LogInViewController {
     enum TipType {
-        case login
-        case password
+        case userName
+        case userPassword
+    }
+    
+    enum UserDataErrorType {
+        case emptyUserNameField
+        case emptyUserPasswordField
+        case wrongNameOrPassword
     }
 }
