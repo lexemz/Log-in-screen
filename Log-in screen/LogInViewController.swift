@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LogInViewController: UIViewController {
+class LogInViewController: UIViewController, UITextFieldDelegate {
     // MARK: - IB Outlets
 
     @IBOutlet var loginButton: UIView!
@@ -25,6 +25,11 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        userNameTextfield.delegate = self
+        userNameTextfield.tag = 0
+        userPasswordTextfield.delegate = self
+        userPasswordTextfield.tag = 1
+        
         loginButton.layer.cornerRadius = 5
     }
     
@@ -37,9 +42,11 @@ class LogInViewController: UIViewController {
             showAlertController(alertType: .emptyUserNameFieldOrPasswordField)
             return false
         }
+        
         if userPass == expectedUserPassword, userName == expectedUserName {
             return true
         }
+        
         showAlertController(alertType: .wrongNameOrPassword)
         return false
     }
@@ -65,12 +72,30 @@ class LogInViewController: UIViewController {
         userPasswordTextfield.text = nil
     }
     
+    // MARK: - Public Methods
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Try to find next responder
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            // Not found, so remove keyboard.
+//            textField.resignFirstResponder()
+
+            if shouldPerformSegue(withIdentifier: "loginButtonSegue", sender: nil) {
+                performSegue(withIdentifier: "loginButtonSegue", sender: nil)
+            }
+        }
+        // Do not add a line break
+        return false
+    }
+    
     // MARK: - Private Methods
     
     private func showAlertController(alertType: AlertType) {
         let alertTitle: String
         let alertSubtitle: String
-        var alertAction: () -> Void = { return }
+        var alertAction: () -> Void = {}
         
         switch alertType {
         case .emptyUserNameFieldOrPasswordField:
