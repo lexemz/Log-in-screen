@@ -17,8 +17,8 @@ class LogInViewController: UIViewController {
     
     // MARK: - Public Properties
 
-    let userName = "user"
-    let userPassword = "qwe"
+    let expectedUserName = "user"
+    let expectedUserPassword = "123"
     
     // MARK: - Life Cycles Methods
 
@@ -37,16 +37,16 @@ class LogInViewController: UIViewController {
             showWrongUserDataError(errorType: .emptyUserNameFieldOrPasswordField)
             return false
         }
-        if userPass != userPassword || userName != userName {
-            showWrongUserDataError(errorType: .wrongNameOrPassword)
-            return false
+        if userPass == expectedUserPassword && userName == expectedUserName {
+            return true
         }
-        return true
+        showWrongUserDataError(errorType: .wrongNameOrPassword)
+        return false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        welcomeVC.userName = userName
+        welcomeVC.userName = expectedUserName
     }
     
     // not worked!
@@ -73,10 +73,10 @@ class LogInViewController: UIViewController {
         
         switch tipType {
         case .userName:
-            tip = userName
+            tip = expectedUserName
             tipTitle = "Ваше имя пользователя"
         case .userPassword:
-            tip = userPassword
+            tip = expectedUserPassword
             tipTitle = "Ваш пароль"
         }
         
