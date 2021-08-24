@@ -37,7 +37,7 @@ class LogInViewController: UIViewController {
             showWrongUserDataError(errorType: .emptyUserNameFieldOrPasswordField)
             return false
         }
-        if userPass == expectedUserPassword && userName == expectedUserName {
+        if userPass == expectedUserPassword, userName == expectedUserName {
             return true
         }
         showWrongUserDataError(errorType: .wrongNameOrPassword)
@@ -49,14 +49,14 @@ class LogInViewController: UIViewController {
         welcomeVC.userName = expectedUserName
     }
     
-    // not worked!
+    // hide keyboard with touch
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
 
     // MARK: - IB Actions
 
-    @IBAction func forgotUserNameButtonPressed() { showTip(tipType: .userName)}
+    @IBAction func forgotUserNameButtonPressed() { showTip(tipType: .userName) }
     
     @IBAction func forgotPasswordButtonPressed() { showTip(tipType: .userPassword) }
     
@@ -67,6 +67,7 @@ class LogInViewController: UIViewController {
     }
     
     // MARK: - Private Methods
+
     private func showTip(tipType: TipType) {
         let tip: String
         let tipTitle: String
@@ -88,7 +89,7 @@ class LogInViewController: UIViewController {
         let okAction = UIAlertAction(title: "Ok", style: .default)
         
         alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     private func showWrongUserDataError(errorType: UserDataErrorType) {
@@ -98,7 +99,7 @@ class LogInViewController: UIViewController {
         switch errorType {
         case .emptyUserNameFieldOrPasswordField:
             errorTip = "Enter username and password"
-            errorAction = { return }
+            errorAction = {}
         case .wrongNameOrPassword:
             errorTip = "Wrong login or password!"
             errorAction = { self.userPasswordTextfield.text = "" }
@@ -112,7 +113,7 @@ class LogInViewController: UIViewController {
         let okAction = UIAlertAction(title: "Ok", style: .default)
         
         alert.addAction(okAction)
-        self.present(alert, animated: true, completion: errorAction)
+        present(alert, animated: true, completion: errorAction)
     }
 }
 
