@@ -93,12 +93,15 @@ class LogInViewController: UIViewController {
     
     private func showWrongUserDataError(errorType: UserDataErrorType) {
         let errorTip: String
+        let errorAction: () -> Void
         
         switch errorType {
         case .emptyUserNameFieldOrPasswordField:
             errorTip = "Enter username and password"
+            errorAction = { return }
         case .wrongNameOrPassword:
             errorTip = "Wrong login or password!"
+            errorAction = { self.userPasswordTextfield.text = "" }
         }
         
         let alert = UIAlertController(
@@ -109,9 +112,7 @@ class LogInViewController: UIViewController {
         let okAction = UIAlertAction(title: "Ok", style: .default)
         
         alert.addAction(okAction)
-        self.present(alert, animated: true) {
-            self.userPasswordTextfield.text = ""
-        }
+        self.present(alert, animated: true, completion: errorAction)
     }
 }
 
