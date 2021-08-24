@@ -30,11 +30,11 @@ class LogInViewController: UIViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         guard let userName = userNameTextfield.text, !userName.isEmpty else {
-            showWrongUserDataError(errorType: .emptyUserNameField)
+            showWrongUserDataError(errorType: .emptyUserNameFieldOrPasswordField)
             return false
         }
         guard let userPass = userPasswordTextfield.text, !userPass.isEmpty else {
-            showWrongUserDataError(errorType: .emptyUserPasswordField)
+            showWrongUserDataError(errorType: .emptyUserNameFieldOrPasswordField)
             return false
         }
         if userPass != userPassword || userName != userName {
@@ -95,10 +95,8 @@ class LogInViewController: UIViewController {
         let errorTip: String
         
         switch errorType {
-        case .emptyUserNameField:
-            errorTip = "Enter username"
-        case .emptyUserPasswordField:
-            errorTip = "Enter password"
+        case .emptyUserNameFieldOrPasswordField:
+            errorTip = "Enter username and password"
         case .wrongNameOrPassword:
             errorTip = "Wrong login or password!"
         }
@@ -126,8 +124,7 @@ extension LogInViewController {
     }
     
     enum UserDataErrorType {
-        case emptyUserNameField
-        case emptyUserPasswordField
+        case emptyUserNameFieldOrPasswordField
         case wrongNameOrPassword
     }
 }
