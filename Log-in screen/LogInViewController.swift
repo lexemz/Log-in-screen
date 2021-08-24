@@ -30,17 +30,17 @@ class LogInViewController: UIViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         guard let userName = userNameTextfield.text, !userName.isEmpty else {
-            showWrongUserDataError(errorType: .emptyUserNameFieldOrPasswordField)
+            showAlertController(alertType: .emptyUserNameFieldOrPasswordField)
             return false
         }
         guard let userPass = userPasswordTextfield.text, !userPass.isEmpty else {
-            showWrongUserDataError(errorType: .emptyUserNameFieldOrPasswordField)
+            showAlertController(alertType: .emptyUserNameFieldOrPasswordField)
             return false
         }
         if userPass == expectedUserPassword, userName == expectedUserName {
             return true
         }
-        showWrongUserDataError(errorType: .wrongNameOrPassword)
+        showAlertController(alertType: .wrongNameOrPassword)
         return false
     }
     
@@ -56,77 +56,57 @@ class LogInViewController: UIViewController {
 
     // MARK: - IB Actions
 
-    @IBAction func forgotUserNameButtonPressed() { showTip(tipType: .userName) }
+    @IBAction func forgotUserNameButtonPressed() { showAlertController(alertType: .userNameTip) }
     
-    @IBAction func forgotPasswordButtonPressed() { showTip(tipType: .userPassword) }
+    @IBAction func forgotPasswordButtonPressed() { showAlertController(alertType: .userPasswordTip) }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
-//        guard let weclomeVC = segue.source as? WelcomeViewController else { return }
         userNameTextfield.text = nil
         userPasswordTextfield.text = nil
     }
     
     // MARK: - Private Methods
-
-    private func showTip(tipType: TipType) {
-        let tip: String
-        let tipTitle: String
-        
-        switch tipType {
-        case .userName:
-            tip = expectedUserName
-            tipTitle = "Ваше имя пользователя"
-        case .userPassword:
-            tip = expectedUserPassword
-            tipTitle = "Ваш пароль"
-        }
-        
-        let alert = UIAlertController(
-            title: tipTitle,
-            message: tip,
-            preferredStyle: UIAlertController.Style.alert
-        )
-        let okAction = UIAlertAction(title: "Ok", style: .default)
-        
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
-    }
     
-    private func showWrongUserDataError(errorType: UserDataErrorType) {
-        let errorTip: String
-        let errorAction: () -> Void
+    private func showAlertController(alertType: AlertType) {
+        let alertTitle: String
+        let alertSubtitle: String
+        var alertAction: () -> Void = { return }
         
-        switch errorType {
+        switch alertType {
         case .emptyUserNameFieldOrPasswordField:
-            errorTip = "Enter username and password"
-            errorAction = {}
+            alertTitle = "Error"
+            alertSubtitle = "Enter username and password"
         case .wrongNameOrPassword:
-            errorTip = "Wrong login or password!"
-            errorAction = { self.userPasswordTextfield.text = "" }
+            alertTitle = "Error"
+            alertSubtitle = "Wrong login or password!"
+            alertAction = { self.userPasswordTextfield.text = "" }
+        case .userNameTip:
+            alertTitle = "Ваше имя пользователя"
+            alertSubtitle = expectedUserName
+        case .userPasswordTip:
+            alertTitle = "Ваш пароль"
+            alertSubtitle = expectedUserPassword
         }
         
         let alert = UIAlertController(
-            title: "Error",
-            message: errorTip,
+            title: alertTitle,
+            message: alertSubtitle,
             preferredStyle: UIAlertController.Style.alert
         )
-        let okAction = UIAlertAction(title: "Ok", style: .default)
+        let okAction = UIAlertAction(title: "OK", style: .default)
         
         alert.addAction(okAction)
-        present(alert, animated: true, completion: errorAction)
+        present(alert, animated: true, completion: alertAction)
     }
 }
 
 // MARK: - Extensions
 
 extension LogInViewController {
-    enum TipType {
-        case userName
-        case userPassword
-    }
-    
-    enum UserDataErrorType {
+    enum AlertType {
         case emptyUserNameFieldOrPasswordField
         case wrongNameOrPassword
+        case userNameTip
+        case userPasswordTip
     }
 }
