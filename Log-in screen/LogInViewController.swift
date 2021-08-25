@@ -91,28 +91,28 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     private func showAlertController(alertType: AlertType) {
         let alertTitle: String
-        let alertSubtitle: String
+        let alertMessage: String
         var alertAction: () -> Void = {}
         
         switch alertType {
         case .emptyUserNameFieldOrPasswordField:
             alertTitle = "Error"
-            alertSubtitle = "Enter username and password"
+            alertMessage = "Enter username and password"
         case .wrongNameOrPassword:
             alertTitle = "Error"
-            alertSubtitle = "Wrong login or password!"
+            alertMessage = "Wrong login or password!"
             alertAction = { self.userPasswordTextfield.text = nil }
         case .userNameTip:
-            alertTitle = "Ваше имя пользователя"
-            alertSubtitle = expectedUserName
+            alertTitle = "Your username"
+            alertMessage = expectedUserName
         case .userPasswordTip:
-            alertTitle = "Ваш пароль"
-            alertSubtitle = expectedUserPassword
+            alertTitle = "Your password"
+            alertMessage = expectedUserPassword
         }
         
         let alert = UIAlertController(
             title: alertTitle,
-            message: alertSubtitle,
+            message: alertMessage,
             preferredStyle: UIAlertController.Style.alert
         )
         let okAction = UIAlertAction(title: "OK", style: .default)
