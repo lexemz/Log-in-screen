@@ -18,7 +18,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Public Properties
 
     let expectedUserName = "user"
-    let expectedUserPassword = "123"
+    let expectedUserPassword = "qwe"
     
     // MARK: - Life Cycles Methods
 
@@ -26,8 +26,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         userNameTextfield.delegate = self
-        userNameTextfield.tag = 0
         userPasswordTextfield.delegate = self
+        userNameTextfield.tag = 0
         userPasswordTextfield.tag = 1
         
         logInButton.layer.cornerRadius = 10
@@ -56,7 +56,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         welcomeVC.userName = expectedUserName
     }
     
-    // hide keyboard with touch on free space
+    // Hide keyboard with touch on free space
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
