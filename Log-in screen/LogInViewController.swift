@@ -10,15 +10,15 @@ import UIKit
 class LogInViewController: UIViewController, UITextFieldDelegate {
     // MARK: - IB Outlets
 
-    @IBOutlet var logInButton: UIView!
+    @IBOutlet var logInButton: UIButton!
     
     @IBOutlet var userNameTextfield: UITextField!
     @IBOutlet var userPasswordTextfield: UITextField!
     
     // MARK: - Public Properties
 
-    let expectedUserName = "user"
-    let expectedUserPassword = "qwe"
+    private let expectedUserName = "user"
+    private let expectedUserPassword = "qwe"
     
     // MARK: - Life Cycles Methods
 
@@ -27,28 +27,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         
         userNameTextfield.delegate = self
         userPasswordTextfield.delegate = self
-        userNameTextfield.tag = 0
-        userPasswordTextfield.tag = 1
         
         logInButton.layer.cornerRadius = 10
-    }
-    
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        guard let userName = userNameTextfield.text, !userName.isEmpty else {
-            showAlertController(alertType: .emptyUserNameFieldOrPasswordField)
-            return false
-        }
-        guard let userPass = userPasswordTextfield.text, !userPass.isEmpty else {
-            showAlertController(alertType: .emptyUserNameFieldOrPasswordField)
-            return false
-        }
-        
-        if userPass == expectedUserPassword, userName == expectedUserName {
-            return true
-        }
-        
-        showAlertController(alertType: .wrongNameOrPassword)
-        return false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -58,11 +38,27 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     // Hide keyboard with touch on free space
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
 
     // MARK: - IB Actions
 
+    @IBAction func LogInButtonPressed() {
+        guard let userName = userNameTextfield.text, !userName.isEmpty else {
+            showAlertController(alertType: .emptyUserNameFieldOrPasswordField)
+            return
+        }
+        guard let userPass = userPasswordTextfield.text, !userPass.isEmpty else {
+            showAlertController(alertType: .emptyUserNameFieldOrPasswordField)
+            return
+        }
+        if userPass == expectedUserPassword, userName == expectedUserName {
+            performSegue(withIdentifier: "loginButtonSegue", sender: nil)
+        }
+        showAlertController(alertType: .wrongNameOrPassword)
+    }
+    
     @IBAction func forgotUserNameButtonPressed() { showAlertController(alertType: .userNameTip) }
     
     @IBAction func forgotPasswordButtonPressed() { showAlertController(alertType: .userPasswordTip) }
@@ -75,14 +71,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Public Methods
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // Try to find next responder
-        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
-            nextField.becomeFirstResponder()
+        if textField == userNameTextfield {
+            userPasswordTextfield.becomeFirstResponder()
         } else {
             // Not found next responder, run segue
-            if shouldPerformSegue(withIdentifier: "loginButtonSegue", sender: nil) {
-                performSegue(withIdentifier: "loginButtonSegue", sender: nil)
-            }
+            LogInButtonPressed()
         }
         return false
     }

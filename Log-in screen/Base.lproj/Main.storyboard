@@ -41,6 +41,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="LogInButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="dkE-o5-Rcc"/>
                                     <segue destination="D9J-re-0KA" kind="show" identifier="loginButtonSegue" id="rcC-GV-zmE"/>
                                 </connections>
                             </button>
