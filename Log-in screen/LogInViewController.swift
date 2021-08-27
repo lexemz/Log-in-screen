@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LogInViewController: UIViewController, UITextFieldDelegate {
+class LogInViewController: UIViewController {
     // MARK: - IB Outlets
 
     @IBOutlet var logInButton: UIButton!
@@ -35,12 +35,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
         welcomeVC.userName = expectedUserName
     }
-    
-    // Hide keyboard with touch on free space
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        view.endEditing(true)
-    }
+
 
     // MARK: - IB Actions
 
@@ -66,18 +61,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     @IBAction func unwind(for segue: UIStoryboardSegue) {
         userNameTextfield.text = nil
         userPasswordTextfield.text = nil
-    }
-    
-    // MARK: - Public Methods
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == userNameTextfield {
-            userPasswordTextfield.becomeFirstResponder()
-        } else {
-            // Not found next responder, run segue
-            LogInButtonPressed()
-        }
-        return false
     }
     
     // MARK: - Private Methods
@@ -115,8 +98,29 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
 }
 
-// MARK: - Extensions
+// MARK: - Extension for LogInViewController - UITextFieldDelegate
 
+extension LogInViewController: UITextFieldDelegate {
+    
+    // Hide keyboard with touch on free space
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == userNameTextfield {
+            userPasswordTextfield.becomeFirstResponder()
+        } else {
+            // Not found next responder, run segue
+            LogInButtonPressed()
+        }
+        return false
+    }
+}
+
+// MARK: - Extension for LogInViewController - type of alert controller
 extension LogInViewController {
     enum AlertType {
         case emptyUserNameFieldOrPasswordField
