@@ -48,17 +48,18 @@ class LogInViewController: UIViewController {
             showAlertController(alertType: .emptyUserNameFieldOrPasswordField)
             return
         }
-        if userPass == expectedUserPassword, userName == expectedUserName {
-            performSegue(withIdentifier: "loginButtonSegue", sender: nil)
+        guard userPass == expectedUserPassword, userName == expectedUserName else {
+            showAlertController(alertType: .wrongNameOrPassword)
+            return
         }
-        showAlertController(alertType: .wrongNameOrPassword)
+        performSegue(withIdentifier: "loginButtonSegue", sender: nil)
     }
     
     @IBAction func forgotUserNameButtonPressed() { showAlertController(alertType: .userNameTip) }
     
     @IBAction func forgotPasswordButtonPressed() { showAlertController(alertType: .userPasswordTip) }
     
-    @IBAction func unwind(for segue: UIStoryboardSegue) {
+    @IBAction func unwindSegue(for segue: UIStoryboardSegue) {
         userNameTextfield.text = nil
         userPasswordTextfield.text = nil
     }
@@ -98,7 +99,7 @@ class LogInViewController: UIViewController {
     }
 }
 
-// MARK: - Extension for LogInViewController - UITextFieldDelegate
+// MARK: - UITextFieldDelegate
 
 extension LogInViewController: UITextFieldDelegate {
     
