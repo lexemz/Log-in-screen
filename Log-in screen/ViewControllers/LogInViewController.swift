@@ -15,7 +15,7 @@ class LogInViewController: UIViewController {
     @IBOutlet var userNameTextfield: UITextField!
     @IBOutlet var userPasswordTextfield: UITextField!
     
-    // MARK: - Public Properties
+    // MARK: - Private Properties
 
     private var userData = User.mockObject()
     

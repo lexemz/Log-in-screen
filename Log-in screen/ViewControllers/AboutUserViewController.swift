@@ -8,37 +8,79 @@
 import UIKit
 
 class AboutUserViewController: UIViewController {
+    // MARK: - IB Outlets
 
     @IBOutlet var naviController: UINavigationItem!
-    
+
     @IBOutlet var skillsButton: UIButton!
     @IBOutlet var hobbiesButton: UIButton!
     @IBOutlet var educationButton: UIButton!
-    
+
+    // MARK: - Public Properties
+
     var userInfo: Human!
-    
+
+    // MARK: - Private Properties
+
+    private var pushingNaviControllerTitle = ""
+    private var pushingUserDetailInfoBLocks: [String] = []
+
+    // MARK: - Life Cycles Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
         naviController.title = userInfo.name
+        
+        colorizeBackground()
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination
-        if let aboutSkillsVC = destination as? AboutSkillsViewController {
-            if let skills = userInfo.skills {
-                aboutSkillsVC.skills = skills
-                aboutSkillsVC.ncTitle = skillsButton.currentTitle
+        guard let detailVc = segue.destination as? DetailInfoViewController else { return }
+        detailVc.naviControllerTitle = pushingNaviControllerTitle
+        detailVc.infoBlocks = pushingUserDetailInfoBLocks
+    }
+
+    // MARK: - IB Actions
+
+    @IBAction func btnPressed(_ sender: UIButton) {
+        switch sender.tag {
+        case 0:
+            guard let userSkills = userInfo.skills else { return }
+            pushingNaviControllerTitle = skillsButton.currentTitle!
+
+            for skill in userSkills {
+                pushingUserDetailInfoBLocks.append(skill.getInfo)
             }
-        } else if let aboutHobbiesVC = destination as? AboutHobbiesViewController {
-            if let hobbies = userInfo.hobbies {
-                aboutHobbiesVC.hobbies = hobbies
-                aboutHobbiesVC.ncTitle = hobbiesButton.currentTitle
+        case 1:
+            guard let userHobbies = userInfo.hobbies else { return }
+            pushingNaviControllerTitle = hobbiesButton.currentTitle!
+
+            for hobbie in userHobbies {
+                pushingUserDetailInfoBLocks.append(hobbie.getInfo)
             }
-        } else if let aboutEducationVC = destination as? AboutEducationViewController {
-            if let education = userInfo.education {
-                aboutEducationVC.education = education
-                aboutEducationVC.ncTitle = educationButton.currentTitle
+        default:
+            guard let userEducation = userInfo.education else { return }
+            pushingNaviControllerTitle = educationButton.currentTitle!
+
+            for educationInstance in userEducation {
+                pushingUserDetailInfoBLocks.append(educationInstance.getInfo)
             }
         }
+
+        performSegue(withIdentifier: "showDetailInfo", sender: nil)
+        
+        pushingNaviControllerTitle = ""
+        pushingUserDetailInfoBLocks = []
+    }
+    
+    private func colorizeBackground() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+        
+        gradientLayer.colors = [
+            UIColor(red:138/255.0, green:48/255.0, blue:127/255.0, alpha:1.0).cgColor,
+            UIColor(red:77/255.0, green:81/255.0, blue:142/255.0, alpha:1.0).cgColor
+        ]
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
