@@ -11,12 +11,11 @@ class AboutUserViewController: UIViewController {
 
     @IBOutlet var navigationControllerTitle: UINavigationItem!
     
-    var userName: String!
+    var userData: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationControllerTitle.title = userName
-
+        navigationControllerTitle.title = userData.userInfo.name
     }
 
 }

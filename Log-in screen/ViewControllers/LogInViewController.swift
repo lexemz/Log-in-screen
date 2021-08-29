@@ -17,8 +17,7 @@ class LogInViewController: UIViewController {
     
     // MARK: - Public Properties
 
-    private let expectedUserName = "user"
-    private let expectedUserPassword = "qwe"
+    private var userData: User { User.mockObject() }
     
     // MARK: - Life Cycles Methods
 
@@ -38,7 +37,7 @@ class LogInViewController: UIViewController {
         for viewController in viewControllers {
             if let aboutUserViewController = viewController as? UINavigationController {
                 let userInfoVC = aboutUserViewController.topViewController as! AboutUserViewController
-                userInfoVC.userName = expectedUserName
+                userInfoVC.userData = userData
             }
         }
     }
@@ -54,7 +53,7 @@ class LogInViewController: UIViewController {
             showAlertController(alertType: .emptyUserNameFieldOrPasswordField)
             return
         }
-        guard userPass == expectedUserPassword, userName == expectedUserName else {
+        guard userPass == userData.userPassword, userName == userData.userName else {
             showAlertController(alertType: .wrongNameOrPassword)
             return
         }
@@ -91,10 +90,10 @@ class LogInViewController: UIViewController {
             alertAction = { self.userPasswordTextfield.text = nil }
         case .userNameTip:
             alertTitle = "Your username"
-            alertMessage = expectedUserName
+            alertMessage = userData.userName
         case .userPasswordTip:
             alertTitle = "Your password"
-            alertMessage = expectedUserPassword
+            alertMessage = userData.userPassword
         }
         
         let alert = UIAlertController(

@@ -141,7 +141,6 @@
                     <navigationItem key="navigationItem" id="cQD-6Z-hUa"/>
                     <connections>
                         <outlet property="logOutButton" destination="kF3-v4-ldh" id="roz-Ab-EPr"/>
-                        <outlet property="userWelcomeLabel" destination="Fur-xK-7r6" id="Mh1-3K-Wgm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9mk-gs-QXz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -158,25 +157,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="QzW-7N-PPk">
-                                <rect key="frame" x="172" y="200" width="46" height="174"/>
+                                <rect key="frame" x="146.66666666666666" y="200" width="97" height="174"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAs-Q3-FRN">
-                                        <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="97" height="30"/>
+                                        <state key="normal" title="Навыки"/>
                                         <connections>
                                             <segue destination="nXB-Yl-Wsa" kind="show" id="ci3-Pf-A7b"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2q-nf-YxC">
-                                        <rect key="frame" x="0.0" y="72" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="0.0" y="72" width="97" height="30"/>
+                                        <state key="normal" title="Хобби"/>
                                         <connections>
                                             <segue destination="Q6E-lj-0vi" kind="show" id="XeN-ku-vFd"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gmK-2j-HaT">
-                                        <rect key="frame" x="0.0" y="144" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="0.0" y="144" width="97" height="30"/>
+                                        <state key="normal" title="Образование"/>
                                         <connections>
                                             <segue destination="QPC-SA-EsS" kind="show" id="Zip-Po-d8S"/>
                                         </connections>
@@ -268,7 +267,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XPv-Du-XMa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2069" y="116"/>
+            <point key="canvasLocation" x="2018" y="116"/>
         </scene>
         <!--About me-->
         <scene sceneID="lLf-ex-i92">
