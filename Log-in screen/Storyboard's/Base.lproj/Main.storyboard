@@ -209,13 +209,27 @@
                     <view key="view" contentMode="scaleToFill" id="muw-wO-a6G">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMM-P1-zSY">
+                                <rect key="frame" x="20" y="88" width="350" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="yr0-p3-31u"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kMM-P1-zSY" firstAttribute="leading" secondItem="yr0-p3-31u" secondAttribute="leading" constant="20" id="GKB-W6-kRF"/>
+                            <constraint firstItem="yr0-p3-31u" firstAttribute="trailing" secondItem="kMM-P1-zSY" secondAttribute="trailing" constant="20" id="ow4-jN-acc"/>
+                            <constraint firstItem="kMM-P1-zSY" firstAttribute="top" secondItem="yr0-p3-31u" secondAttribute="top" id="voU-UI-sOU"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="BcX-FZ-xR5"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="naviController" destination="BcX-FZ-xR5" id="D7o-pA-WZo"/>
+                        <outlet property="skillsLabel" destination="kMM-P1-zSY" id="fKC-bX-3bf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UzS-HD-cqp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -229,13 +243,27 @@
                     <view key="view" contentMode="scaleToFill" id="XLK-sV-spG">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O21-rW-Qdl">
+                                <rect key="frame" x="20" y="88" width="350" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Ikx-G1-VfM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="O21-rW-Qdl" firstAttribute="top" secondItem="Ikx-G1-VfM" secondAttribute="top" id="80e-yW-SPS"/>
+                            <constraint firstItem="Ikx-G1-VfM" firstAttribute="trailing" secondItem="O21-rW-Qdl" secondAttribute="trailing" constant="20" id="JE7-tV-nns"/>
+                            <constraint firstItem="O21-rW-Qdl" firstAttribute="leading" secondItem="Ikx-G1-VfM" secondAttribute="leading" constant="20" id="dN6-2k-hwc"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="gsR-9B-asw"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="naviController" destination="gsR-9B-asw" id="9aj-L7-oM0"/>
+                        <outlet property="skillsLabel" destination="O21-rW-Qdl" id="NFx-Xx-7e1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="psC-2b-QFH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -249,13 +277,27 @@
                     <view key="view" contentMode="scaleToFill" id="LE4-dl-RbC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hx-EF-m1p">
+                                <rect key="frame" x="20" y="88" width="350" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="QEF-oK-T8R"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9hx-EF-m1p" firstAttribute="top" secondItem="QEF-oK-T8R" secondAttribute="top" id="pi0-2n-k7s"/>
+                            <constraint firstItem="QEF-oK-T8R" firstAttribute="trailing" secondItem="9hx-EF-m1p" secondAttribute="trailing" constant="20" id="v6X-xt-fLU"/>
+                            <constraint firstItem="9hx-EF-m1p" firstAttribute="leading" secondItem="QEF-oK-T8R" secondAttribute="leading" constant="20" id="wcK-Lz-QlR"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="PP0-l7-fcR"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="naviController" destination="PP0-l7-fcR" id="3rz-cW-8TI"/>
+                        <outlet property="skillsLabel" destination="9hx-EF-m1p" id="Ew0-2L-vMQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2XG-Vh-1xP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

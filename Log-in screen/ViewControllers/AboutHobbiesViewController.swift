@@ -10,7 +10,8 @@ import UIKit
 class AboutHobbiesViewController: UIViewController {
     
     @IBOutlet var naviController: UINavigationItem!
-
+    @IBOutlet var skillsLabel: UILabel!
+    
     var ncTitle: String!
     var hobbies: [Hobbie]!
     
