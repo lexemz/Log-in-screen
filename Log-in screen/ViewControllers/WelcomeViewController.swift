@@ -8,10 +8,16 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
+    // MARK: - IB Outlets
+
     @IBOutlet var welcomeTitle: UILabel!
     @IBOutlet var logOutButton: UIButton!
 
+    // MARK: - Public Properties
+
     var userName: String!
+
+    // MARK: - Life Cycles Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()

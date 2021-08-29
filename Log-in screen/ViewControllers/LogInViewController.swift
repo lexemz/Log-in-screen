@@ -20,13 +20,13 @@ class LogInViewController: UIViewController {
     private var userData = User.mockObject()
     
     // MARK: - Life Cycles Methods
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         userNameTextfield.delegate = self
         userPasswordTextfield.delegate = self
-        
+    
         logInButton.layer.cornerRadius = 10
     }
     

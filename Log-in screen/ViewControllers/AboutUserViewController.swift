@@ -30,7 +30,6 @@ class AboutUserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         naviController.title = userInfo.name
-        
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -67,7 +66,7 @@ class AboutUserViewController: UIViewController {
         }
 
         performSegue(withIdentifier: "showDetailInfo", sender: nil)
-        
+
         pushingNaviControllerTitle = ""
         pushingUserDetailInfoBLocks = []
     }
