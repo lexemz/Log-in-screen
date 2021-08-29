@@ -43,7 +43,6 @@ class LogInViewController: UIViewController {
         }
     }
 
-
     // MARK: - IB Actions
 
     @IBAction func LogInButtonPressed() {
@@ -61,10 +60,14 @@ class LogInViewController: UIViewController {
         }
         performSegue(withIdentifier: "loginButtonSegue", sender: nil)
     }
-    
-    @IBAction func forgotUserNameButtonPressed() { showAlertController(alertType: .userNameTip) }
-    
-    @IBAction func forgotPasswordButtonPressed() { showAlertController(alertType: .userPasswordTip) }
+        
+    @IBAction func forgotButtonPressed(_ sender: UIButton) {
+        if sender.tag == 0 {
+            showAlertController(alertType: .userNameTip)
+        } else {
+            showAlertController(alertType: .userPasswordTip)
+        }
+    }
     
     @IBAction func unwindSegue(for segue: UIStoryboardSegue) {
         userNameTextfield.text = nil
@@ -109,13 +112,11 @@ class LogInViewController: UIViewController {
 // MARK: - UITextFieldDelegate
 
 extension LogInViewController: UITextFieldDelegate {
-    
     // Hide keyboard with touch on free space
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
-    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == userNameTextfield {
@@ -129,6 +130,7 @@ extension LogInViewController: UITextFieldDelegate {
 }
 
 // MARK: - Extension for LogInViewController - type of alert controller
+
 extension LogInViewController {
     enum AlertType {
         case emptyUserNameFieldOrPasswordField
