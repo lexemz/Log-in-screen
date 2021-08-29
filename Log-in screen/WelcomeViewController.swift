@@ -11,12 +11,9 @@ class WelcomeViewController: UIViewController {
     @IBOutlet var userWelcomeLabel: UILabel!
     
     @IBOutlet var logOutButton: UIButton!
-    
-    var userName: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        userWelcomeLabel.text = "Welcome, " + userName.firstUppercased
         logOutButton.layer.cornerRadius = 10
         colorizeBackground()
     }

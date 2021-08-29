@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78C44BDA26DB8739004083C9 /* AboutUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C44BD926DB8739004083C9 /* AboutUserViewController.swift */; };
 		78C69C7826D5157A00E3E6F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C69C7726D5157A00E3E6F3 /* AppDelegate.swift */; };
 		78C69C7A26D5157A00E3E6F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C69C7926D5157A00E3E6F3 /* SceneDelegate.swift */; };
 		78C69C7C26D5157A00E3E6F3 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C69C7B26D5157A00E3E6F3 /* LogInViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		78C44BD926DB8739004083C9 /* AboutUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUserViewController.swift; sourceTree = "<group>"; };
 		78C69C7426D5157A00E3E6F3 /* Log-in screen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Log-in screen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C69C7726D5157A00E3E6F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78C69C7926D5157A00E3E6F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		78C69C7626D5157A00E3E6F3 /* Log-in screen */ = {
 			isa = PBXGroup;
 			children = (
+				78C44BD926DB8739004083C9 /* AboutUserViewController.swift */,
 				78C69C7726D5157A00E3E6F3 /* AppDelegate.swift */,
 				78C69C7926D5157A00E3E6F3 /* SceneDelegate.swift */,
 				78C69C7B26D5157A00E3E6F3 /* LogInViewController.swift */,
@@ -142,6 +145,7 @@
 			files = (
 				78C69C7C26D5157A00E3E6F3 /* LogInViewController.swift in Sources */,
 				78C69C8E26D51EA900E3E6F3 /* WelcomeViewController.swift in Sources */,
+				78C44BDA26DB8739004083C9 /* AboutUserViewController.swift in Sources */,
 				78C69C7826D5157A00E3E6F3 /* AppDelegate.swift in Sources */,
 				78C69C7A26D5157A00E3E6F3 /* SceneDelegate.swift in Sources */,
 			);
