@@ -29,6 +29,7 @@ class AboutUserViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         naviController.title = userInfo.name
     }
 
@@ -44,21 +45,21 @@ class AboutUserViewController: UIViewController {
         switch sender.tag {
         case 0:
             guard let userSkills = userInfo.skills else { return }
-            pushingNaviControllerTitle = skillsButton.currentTitle!
+            pushingNaviControllerTitle = skillsButton.currentTitle ?? userInfo.name
 
             for skill in userSkills {
                 pushingUserDetailInfoBLocks.append(skill.getInfo)
             }
         case 1:
             guard let userHobbies = userInfo.hobbies else { return }
-            pushingNaviControllerTitle = hobbiesButton.currentTitle!
+            pushingNaviControllerTitle = hobbiesButton.currentTitle ?? userInfo.name
 
             for hobbie in userHobbies {
                 pushingUserDetailInfoBLocks.append(hobbie.getInfo)
             }
         default:
             guard let userEducation = userInfo.education else { return }
-            pushingNaviControllerTitle = educationButton.currentTitle!
+            pushingNaviControllerTitle = educationButton.currentTitle ?? userInfo.name
 
             for educationInstance in userEducation {
                 pushingUserDetailInfoBLocks.append(educationInstance.getInfo)

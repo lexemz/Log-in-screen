@@ -21,9 +21,10 @@ class WelcomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         logOutButton.layer.cornerRadius = 10
         welcomeTitle.text = "Welcome, " + userName.firstUppercased
-
+        
         colorizeBackground()
     }
 }

@@ -22,6 +22,7 @@ class DetailInfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         naviController.title = naviControllerTitle
         
         unpackData()
