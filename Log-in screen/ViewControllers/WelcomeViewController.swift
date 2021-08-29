@@ -8,7 +8,6 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
-    @IBOutlet var userWelcomeLabel: UILabel!
     
     @IBOutlet var logOutButton: UIButton!
 
@@ -30,7 +29,3 @@ class WelcomeViewController: UIViewController {
     }
 }
 
-// MARK: - Extensions for String Protocol
-extension StringProtocol {
-    var firstUppercased: String { prefix(1).uppercased() + dropFirst() }
-}
