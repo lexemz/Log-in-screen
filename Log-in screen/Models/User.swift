@@ -87,7 +87,7 @@ struct Skill {
     let skillLevel: SkillLevel
     
     var getInfo: String {
-        "Навык: \(title). Уровень понимания: \(skillLevel.rawValue)"
+        "- Навык: \(title).\n Уровень понимания: \(skillLevel.rawValue)\n\n"
     }
 }
 
@@ -96,7 +96,7 @@ struct Hobbie {
     let description: String
     
     var getInfo: String {
-        "Хобби: \(title). \(description)"
+        "- Хобби: \(title). \(description)\n"
     }
 }
 
@@ -117,6 +117,7 @@ struct Education {
         Год окончания: \(yearEnd)
         Название организации: \(nameOfOrganization)
         Направление: \(educationDirection ?? "общее")
+        \n
         """
     }
 }
