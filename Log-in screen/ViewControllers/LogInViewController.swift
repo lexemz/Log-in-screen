@@ -17,7 +17,7 @@ class LogInViewController: UIViewController {
     
     // MARK: - Public Properties
 
-    private var userData: User { User.mockObject() }
+    private var userData = User.mockObject()
     
     // MARK: - Life Cycles Methods
 
@@ -37,7 +37,7 @@ class LogInViewController: UIViewController {
         for viewController in viewControllers {
             if let aboutUserViewController = viewController as? UINavigationController {
                 let userInfoVC = aboutUserViewController.topViewController as! AboutUserViewController
-                userInfoVC.userData = userData
+                userInfoVC.userInfo = userData.userInfo
             }
         }
     }

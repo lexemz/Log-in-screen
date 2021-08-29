@@ -9,21 +9,14 @@ import UIKit
 
 class AboutEducationViewController: UIViewController {
 
+    @IBOutlet var naviController: UINavigationItem!
+    
+    var ncTitle: String!
+    var education: [Education]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        naviController.title = ncTitle
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

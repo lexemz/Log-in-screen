@@ -20,12 +20,12 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="nTF-a9-xXE">
                                 <rect key="frame" x="40" y="104" width="310" height="92"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w6a-f6-ZBE">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="igor" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w6a-f6-ZBE">
                                         <rect key="frame" x="0.0" y="0.0" width="310" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no" textContentType="username"/>
                                     </textField>
-                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="avW-GG-p1b">
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="avW-GG-p1b">
                                         <rect key="frame" x="0.0" y="58" width="310" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
@@ -192,7 +192,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="{about user}" id="Xo9-Jr-NW8"/>
                     <connections>
-                        <outlet property="navigationControllerTitle" destination="Xo9-Jr-NW8" id="gxP-83-JJv"/>
+                        <outlet property="educationButton" destination="gmK-2j-HaT" id="qxt-0Y-ZTn"/>
+                        <outlet property="hobbiesButton" destination="s2q-nf-YxC" id="pVd-p2-1AS"/>
+                        <outlet property="naviController" destination="Xo9-Jr-NW8" id="gxP-83-JJv"/>
+                        <outlet property="skillsButton" destination="OAs-Q3-FRN" id="AIh-qF-lVE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V2B-aB-lIA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -209,8 +212,11 @@
                         <viewLayoutGuide key="safeArea" id="yr0-p3-31u"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="BcX-FZ-xR5"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="BcX-FZ-xR5"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="naviController" destination="BcX-FZ-xR5" id="D7o-pA-WZo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UzS-HD-cqp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -226,8 +232,11 @@
                         <viewLayoutGuide key="safeArea" id="Ikx-G1-VfM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gsR-9B-asw"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="gsR-9B-asw"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="naviController" destination="gsR-9B-asw" id="9aj-L7-oM0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="psC-2b-QFH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -243,8 +252,11 @@
                         <viewLayoutGuide key="safeArea" id="QEF-oK-T8R"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="PP0-l7-fcR"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="PP0-l7-fcR"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="naviController" destination="PP0-l7-fcR" id="3rz-cW-8TI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2XG-Vh-1xP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
