@@ -23,6 +23,7 @@ class DetailInfoViewController: UIViewController {
         naviController.title = naviControllerTitle
         
         unpackData()
+        
     }
     
     // MARK: - Private Methods

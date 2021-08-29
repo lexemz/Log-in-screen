@@ -110,10 +110,10 @@
                                     <segue destination="z57-HH-Ank" kind="unwind" unwindAction="unwindSegueFor:" id="1eo-91-C0z"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Alexey!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fur-xK-7r6">
-                                <rect key="frame" x="91.666666666666686" y="144" width="207" height="33.666666666666657"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{welcome}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fur-xK-7r6">
+                                <rect key="frame" x="131.33333333333334" y="144" width="127.33333333333334" height="33.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <color key="textColor" systemColor="systemBackgroundColor"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRG-Qf-42h">
@@ -124,7 +124,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tpu-D6-P0X"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" systemColor="systemBlueColor"/>
                         <constraints>
                             <constraint firstItem="yRG-Qf-42h" firstAttribute="centerX" secondItem="tpu-D6-P0X" secondAttribute="centerX" id="9rf-qR-tOl"/>
@@ -162,9 +162,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAs-Q3-FRN">
                                         <rect key="frame" x="0.0" y="0.0" width="114" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="Навыки">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
+                                        <state key="normal" title="Навыки"/>
                                         <connections>
                                             <action selector="btnPressed:" destination="nff-DZ-R4g" eventType="touchUpInside" id="uxO-ze-Rot"/>
                                         </connections>
@@ -172,9 +170,7 @@
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2q-nf-YxC">
                                         <rect key="frame" x="0.0" y="76" width="114" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="Хобби">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
+                                        <state key="normal" title="Хобби"/>
                                         <connections>
                                             <action selector="btnPressed:" destination="nff-DZ-R4g" eventType="touchUpInside" id="SK2-7S-IHv"/>
                                         </connections>
@@ -182,9 +178,7 @@
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gmK-2j-HaT">
                                         <rect key="frame" x="0.0" y="152" width="114" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="Образование">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
+                                        <state key="normal" title="Образование"/>
                                         <connections>
                                             <action selector="btnPressed:" destination="nff-DZ-R4g" eventType="touchUpInside" id="oDr-Cv-JZV"/>
                                         </connections>
@@ -193,7 +187,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tHk-Ky-QeV"/>
-                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="QzW-7N-PPk" firstAttribute="top" secondItem="tHk-Ky-QeV" secondAttribute="top" constant="60" id="6ss-IW-rLK"/>
                             <constraint firstItem="QzW-7N-PPk" firstAttribute="centerX" secondItem="tHk-Ky-QeV" secondAttribute="centerX" id="eLi-kX-e9q"/>
@@ -274,9 +268,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="etg-rR-dHh">
                         <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -304,9 +295,6 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -31,7 +31,6 @@ class AboutUserViewController: UIViewController {
         super.viewDidLoad()
         naviController.title = userInfo.name
         
-        colorizeBackground()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -71,16 +70,5 @@ class AboutUserViewController: UIViewController {
         
         pushingNaviControllerTitle = ""
         pushingUserDetailInfoBLocks = []
-    }
-    
-    private func colorizeBackground() {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.view.bounds
-        
-        gradientLayer.colors = [
-            UIColor(red:138/255.0, green:48/255.0, blue:127/255.0, alpha:1.0).cgColor,
-            UIColor(red:77/255.0, green:81/255.0, blue:142/255.0, alpha:1.0).cgColor
-        ]
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
 }

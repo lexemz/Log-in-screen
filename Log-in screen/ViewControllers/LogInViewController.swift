@@ -31,13 +31,15 @@ class LogInViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let tabBarController = segue.destination as? UITabBarController else { return }
-        guard let viewControllers = tabBarController.viewControllers else { return }
+        guard let tapBarVC = segue.destination as? UITabBarController else { return }
+        guard let viewControllers = tapBarVC.viewControllers else { return }
         
         for viewController in viewControllers {
-            if let aboutUserViewController = viewController as? UINavigationController {
-                let userInfoVC = aboutUserViewController.topViewController as! AboutUserViewController
-                userInfoVC.userInfo = userData.userInfo
+            if let welcomeVC = viewController as? WelcomeViewController {
+                welcomeVC.userName = userData.userName
+            } else if let navigationVC = viewController as? UINavigationController {
+                let aboutUserVC = navigationVC.topViewController as! AboutUserViewController
+                aboutUserVC.userInfo = userData.userInfo
             }
         }
     }
